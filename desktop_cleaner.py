@@ -27,11 +27,9 @@ if __name__ == "__main__":
     print("Please enter the name of the path you want to clean up.")
 
     folder_name = input()
-
+    # Create the folder_path variable through the username + folder_name input
     folder_path  =  '/Users/' + username + '/' + folder_name
-
-    print(folder_path) 
-
+    # Check if the path is a directory
     if os.path.isdir(folder_path):
         clean_folders(folder_path)
     else:
