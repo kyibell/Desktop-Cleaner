@@ -8,6 +8,7 @@ def create_subfolders(current_directory, subfolder_name):
 def clean_folders(current_directory):
     # Loop through the directory files
     for filename in os.listdir(current_directory):
+        
         #If the file is a valid file, take the subfolder name to sort it into different files
         if os.path.isfile(os.path.join(current_directory, filename)):
             # search the file for the '.' till the end of the str, and make it lowercase
@@ -15,6 +16,8 @@ def clean_folders(current_directory):
             # if there is a file extension, then make the subfolder name the extension + Files
             if file_extension: 
                 subfolder_name = f"{file_extension.upper()} Files"
+                subfolder_path = create_subfolders(current_directory, filename)
+                shutil.move(current_directory, subfolder_name)
 
 
 
